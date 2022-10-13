@@ -9,6 +9,7 @@ import {
   TipBlock,
   YellowBlock,
 } from 'components/organisms/CodeView'
+import { Button } from 'components/atoms/Button'
 
 export const Home: FC = () => (
   <div className={'bg-grid dark:bg-grid-dark h-full'}>
