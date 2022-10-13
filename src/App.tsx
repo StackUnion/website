@@ -1,9 +1,12 @@
 import { FC } from 'react'
+import { Home } from 'components/pages/Home'
+import { Header } from 'components/organisms/Header'
 
 export const App: FC = () => {
   return (
-    <div>
-      <span className={'text-base'}>Hello world</span>
-    </div>
+    <>
+      <Header />
+      <Home />
+    </>
   )
 }
