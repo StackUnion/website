@@ -19,7 +19,7 @@ export const CodeView: FC<JId> = ({ children, ...props }) => {
       <div className={'border-b border-light:100 dark:border-dark-300 w-full mb-3'} />
       <code
         className={
-          'block font-jetbrains text-dark dark:text-light whitespace-pre w-full h-full overflow-x-scroll scrollbar-hide'
+          'block font-jetbrains text-dark dark:text-light whitespace-pre w-full h-full overflow-x-scroll scrollbar-hide select-none'
         }
       >
         {children}

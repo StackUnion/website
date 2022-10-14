@@ -2,9 +2,9 @@ import { VercelRequest, VercelResponse } from '@vercel/node'
 import { renderPage } from 'vite-plugin-ssr'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  const { url } = req
+  const { url: urlOriginal } = req
 
-  const pageContextInit = { url }
+  const pageContextInit = { urlOriginal }
   const pageContext = await renderPage(pageContextInit)
   const { httpResponse } = pageContext
 

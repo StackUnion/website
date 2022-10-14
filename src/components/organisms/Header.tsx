@@ -10,7 +10,7 @@ export const Header: FC = () => (
   >
     <div className={'max-w-screen-xl mx-auto flex items-center h-full px-8 xl:px-0 flex justify-between'}>
       <LogoWithText />
-      <div className={'font-jetbrains text-dark dark:text-light'}>Сайт находится в разработке :]</div>
+      <div className={'font-jetbrains text-dark dark:text-light select-none'}>Сайт находится в разработке :]</div>
       <Button primary>
         Войти
         <svg
