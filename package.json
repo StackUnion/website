@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next nuild",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint src/**/*.{ts,tsx}",
     "lint:fix": "eslint src/**/*.{ts,tsx}"
