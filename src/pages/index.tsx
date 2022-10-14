@@ -1,4 +1,3 @@
-import { FC } from 'react'
 import {
   AccentBlock,
   CodeView,
@@ -10,13 +9,12 @@ import {
   YellowBlock,
 } from 'components/organisms/CodeView'
 import { Pg } from 'components/molecules/Pg'
+import { NextPage } from 'next'
+import { Meta } from 'components/utils/Meta'
 
-export const documentProps = {
-  title: 'Nodium',
-}
-
-export const Page: FC = () => (
+const Page: NextPage = () => (
   <Pg className={'bg-grid dark:bg-grid-dark h-full'}>
+    <Meta title={'Nodium'} />
     <div className={'max-w-screen-xl mx-auto px-16 xl:px-0 bg-[length:32px]'}>
       <div
         className={
@@ -81,7 +79,7 @@ export const Page: FC = () => (
           </GrayBlock>{' '}
           <RedBlock>from</RedBlock>
           {/* eslint-disable-next-line quotes */}
-          <YellowBlock>{" '../../development/tools'"}</YellowBlock>
+          <YellowBlock>{' \'../../development/tools\''}</YellowBlock>
           <br />
           <br />
           <RedBlock>const</RedBlock> newIdea
@@ -128,3 +126,5 @@ export const Page: FC = () => (
     </div>
   </Pg>
 )
+
+export default Page
