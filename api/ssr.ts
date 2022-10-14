@@ -1,5 +1,5 @@
-import { renderPage } from 'vite-plugin-ssr'
 import { VercelRequest, VercelResponse } from '@vercel/node'
+import { renderPage } from 'vite-plugin-ssr'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { url } = req
