@@ -79,7 +79,7 @@ const Page: NextPage = () => (
           </GrayBlock>{' '}
           <RedBlock>from</RedBlock>
           {/* eslint-disable-next-line quotes */}
-          <YellowBlock>{' \'../../development/tools\''}</YellowBlock>
+          <YellowBlock>{" '../../development/tools'"}</YellowBlock>
           <br />
           <br />
           <RedBlock>const</RedBlock> newIdea
