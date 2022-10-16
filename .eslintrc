@@ -27,6 +27,7 @@
   "rules": {
     "prettier/prettier": "error",
     "indent": "off",
+    "import/no-anonymous-default-export": "off",
     "linebreak-style": [
       "error",
       "unix"
