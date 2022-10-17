@@ -2,7 +2,7 @@ import { Html, Main, NextScript, Head } from 'next/document'
 
 export default function Document() {
   return (
-    <Html lang={'ru'} className={'min-h-[100vh] dark'}>
+    <Html lang={'ru'} className={'min-h-[100vh] dark selection:bg-accent-50 selection:bg-opacity-20'}>
       <Head>
         <meta charSet="UTF-8" />
         <link rel={'icon'} type={'image/png'} href={'/favicon.png'} />

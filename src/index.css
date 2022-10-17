@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.codeblock {
+  @apply text-dark-50 dark:text-light-400 bg-light dark:bg-[rgb(37,40,44)] p-4 [line-height:1.32rem] !important;
+}
+
+.codeblock .keyword {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.codeblock .operator {
+  @apply text-indigo-800 dark:text-indigo-300;
+}
+
+.codeblock .punctuation {
+  @apply text-light-400 dark:text-light-700;
+}
+
+.codeblock .class-name {
+  @apply text-emerald-500 dark:text-sky-300;
+}
+
+.codeblock .maybe-class-name {
+  @apply text-emerald-500 dark:text-sky-300;
+}
+
+.codeblock .builtin {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.codeblock .function {
+  @apply text-purple-500 dark:text-lime-300;
+}
+
+.codeblock .number {
+  @apply text-blue-500 dark:text-blue-300;
+}
+
+.codeblock .string {
+  @apply text-yellow-600 dark:text-yellow-300;
+}
+
+.codeblock .macro {
+  @apply text-rose-500 dark:text-green-300;
+}
+
+.codeblock .attribute {
+  @apply text-cyan-500 dark:text-cyan-300;
+}
