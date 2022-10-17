@@ -5,6 +5,7 @@ import { apiFetcher, Ion, unwrapLocalized } from 'api'
 import { FC, Suspense } from 'react'
 import { useLocale } from 'hooks/useI18n'
 import { Import } from 'utils/import'
+import { Spinner } from 'components/atoms/Spinner'
 
 const Mds = Import('Mds', () => import('components/atoms/Mds'))
 
@@ -38,7 +39,7 @@ export const IonContent: FC<Props> = ({ ion }) => {
           <h1 className={'w-full text-left font-display font-bold text-5xl'}>{unwrapLocalized(ion.title, locale)}</h1>
         </section>
         <section className={'text-justify mb-10'}>
-          <Suspense fallback={'Loading'}>
+          <Suspense fallback={<Spinner />}>
             <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
           </Suspense>
         </section>

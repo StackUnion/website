@@ -44,7 +44,7 @@ export const CodeEnv: FC<JId & { children: string; lang?: string }> = ({ childre
       )}
       <div
         className={cn(
-          'relative border border-light-200 dark:border-dark-200 relative overflow rounded-b rounded-r shadow-lg',
+          'relative border border-light-200 dark:border-dark-200 relative overflow rounded-b rounded-r shadow',
           isSingle && 'rounded-l',
         )}
       >
@@ -52,7 +52,7 @@ export const CodeEnv: FC<JId & { children: string; lang?: string }> = ({ childre
           {String(groups?.[selected]?.code)}
         </SyntaxHighlighter>
         <div
-          onClick={() => (setCopied(true), navigator.clipboard.writeText(groups?.[selected]?.code))}
+          onClick={() => (setCopied(true), navigator?.clipboard?.writeText?.(groups?.[selected]?.code))}
           className={cn(
             'w-7 h-7 flex items-center justify-center absolute right-4 top-3.5 border border-light-200 dark:border-dark-100 rounded bg-light-200 dark:bg-dark-200 cursor-pointer transition-colors',
             copied && 'bg-lime-500 dark:bg-lime-300 text-dark border-lime-500 dark:border-lime-300',

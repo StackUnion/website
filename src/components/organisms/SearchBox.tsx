@@ -67,11 +67,11 @@ export const SearchBox: FC = () => {
           <section
             tabIndex={1}
             className={cn(
-              'absolute w-full mt-2 bg-light dark:bg-dark font-jetbrains border border-light-400 dark:border-dark-400 rounded shadow text-dark dark:text-light divide-light-400 dark:divide-dark-400 divide-y',
+              '!outline-none absolute w-full mt-2 bg-light dark:bg-dark font-jetbrains border border-light-400 dark:border-dark-400 rounded shadow text-dark dark:text-light divide-light-400 dark:divide-dark-400 divide-y',
             )}
           >
             {possible && (
-              <Link href={`/ions/${possible.uid}`}>
+              <Link href={`/ions/${possible.uid}`} className={'!outline-none'}>
                 <div
                   className={
                     'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer'
@@ -80,7 +80,7 @@ export const SearchBox: FC = () => {
                   <div className={'font-bold text-accent-300'}>{unwrapLocalized(possible.title, locale)}</div>
                   <div
                     className={
-                      'text-light-400 dark:text-dark-50 text-xs overflow-ellipsis [-webkit-box-orient]:vertical [line-clamp]:2 [-webkit-line-clamp]:2'
+                      'text-light-400 dark:text-dark-50 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
                     {unwrapLocalized(possible.content, locale)}
@@ -96,7 +96,7 @@ export const SearchBox: FC = () => {
             {autocomplete
               .filter(v => v.uid !== possible?.uid)
               .map((item, i) => (
-                <Link href={`/ions/${item.uid}`} key={item.uid} tabIndex={1 + i}>
+                <Link href={`/ions/${item.uid}`} key={item.uid} tabIndex={1 + i} className={'!outline-none'}>
                   <div className={'transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer'}>
                     <div>{unwrapLocalized(item.title, locale)}</div>
                   </div>
