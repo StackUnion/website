@@ -18,7 +18,7 @@ export const SearchBox: FC = () => {
   )
 
   const { data: [rawPossible] = [] } = useSWR<Ion[]>(
-    () => (debouncedSearch ? `http://192.168.50.100:3264/ions/search?q=${debouncedSearch}&limit=1` : null),
+    () => (debouncedSearch ? `http://192.168.50.100:3264/ions?q=${debouncedSearch}&limit=1` : null),
     fetcher,
   )
 
@@ -55,7 +55,7 @@ export const SearchBox: FC = () => {
           />
         </svg>
       </div>
-      <div className={'grow relative [&:not(:focus-within)_section]:hidden'}>
+      <div className={'grow relative [&:not(:focus-within)_section]:hidden z-10'}>
         <Input
           tabIndex={0}
           className={'rounded-tl-none rounded-bl-none focus:rounded-tl focus:rounded-bl shadow-none focus:shadow-none'}

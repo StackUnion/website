@@ -12,3 +12,7 @@ export const unindent = (input: string) => {
 
   return indented ? lines.map(v => v.slice(indent.length)).join('\n') : input
 }
+
+export const explain = (target: string, placeholders: Record<string, string | number | boolean>) => {
+  return target.replace(/\{(?<key>\w+)}/g, (...[, key]) => String(placeholders[key]))
+}
