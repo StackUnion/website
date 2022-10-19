@@ -38,7 +38,7 @@ export const IonContent: FC<Props> = ({ ion }) => {
         <section className={'mb-10'}>
           <h1 className={'w-full text-left font-display font-bold text-5xl'}>{unwrapLocalized(ion.title, locale)}</h1>
         </section>
-        <section className={'text-justify mb-10'}>
+        <section className={'text-justify mb-10 font-serif'}>
           <Suspense fallback={<Spinner />}>
             <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
           </Suspense>

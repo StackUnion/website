@@ -2,6 +2,8 @@ import { FC, useEffect, useMemo, useState } from 'react'
 import cn from 'classnames'
 import { Import } from 'utils/import'
 import { unindent } from 'utils/string'
+import * as icons from 'assets/icons'
+import Image from 'next/future/image'
 
 const SyntaxHighlighter = Import('default', () => import('react-syntax-highlighter/dist/cjs/prism-async'))
 
@@ -37,6 +39,14 @@ export const CodeEnv: FC<JId & { children: string; lang?: string }> = ({ childre
                 i === selected && 'text-accent dark:text-accent-400',
               )}
             >
+              {group?.type && (
+                <Image
+                  width={24}
+                  height={24}
+                  src={icons?.[('icon_' + group.type) as keyof typeof icons]?.default}
+                  alt={''}
+                />
+              )}
               {group?.name ?? group?.type}
             </div>
           ))}
