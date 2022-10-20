@@ -17,10 +17,10 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
   return (
     <Head>
       <title>{title}</title>
-      <meta name={'description'} content={description ?? title} />
+      <meta name={'description'} content={description ?? ''} />
       {keywords && <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', '')}></meta>}
       <meta property={'og:title'} content={title} />
-      <meta property={'og:description'} content={description ?? title} />
+      <meta property={'og:description'} content={description ?? ''} />
       <meta property={'og:site_name'} content={'StackUnion'} />
       {ogImage && (
         <>
