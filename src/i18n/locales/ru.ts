@@ -9,4 +9,11 @@ export default {
     css: 'Стили и препроцессоры',
     react: 'Библиотека для Frontend разработки',
   },
+  ion: {
+    author: 'Автор',
+  },
+  miscellaneous: {
+    copyright: '(C) StackUnion Создано ООО "Nodium" 2022',
+    contact: 'Предложения: limpix31@gmail.com или Телеграм @LIMPIX31',
+  },
 } as LocaleMap

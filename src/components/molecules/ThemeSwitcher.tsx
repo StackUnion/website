@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
-import { FC, Fragment, useEffect } from 'react'
-import { usePersistentState } from 'hooks/usePersistentState'
+import { FC, Fragment, useEffect, useMemo, useState } from 'react'
+import { useTheme } from 'next-themes'
 
 const lightIcon = (
   <svg
@@ -37,21 +37,19 @@ const darkIcon = (
 )
 
 export const ThemeSwitcher: FC = () => {
-  const [dark, setDark] = usePersistentState(
-    'dark',
-    false,
-    () => window?.matchMedia('(prefers-color-scheme: dark)').matches,
-  )
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
-    if (dark) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
-  }, [dark])
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   return (
     <Menu as="div" className="relative flex items-center text-left !outline-none !ring-0">
       <Menu.Button>
-        <div className={'text-dark-50 dark:text-violet-500'}>{dark ? darkIcon : lightIcon}</div>
+        <div className={'text-dark-50 dark:text-violet-500'}>{theme === 'dark' ? darkIcon : lightIcon}</div>
       </Menu.Button>
 
       <Transition
@@ -65,12 +63,12 @@ export const ThemeSwitcher: FC = () => {
       >
         <Menu.Items className="rounded absolute flex flex-col gap-2 translate-x-1/2 right-1/2 z-10 mt-32 w-12 py-2 font-jetbrains origin-top-right bg-light dark:bg-dark shadow-lg focus:outline-none text-dark-50 dark:text-light-200 border border-light-200 dark:border-dark-200">
           <Menu.Item>
-            <div className={'flex justify-center cursor-pointer'} onClick={() => setDark(false)}>
+            <div className={'flex justify-center cursor-pointer'} onClick={() => setTheme('light')}>
               {lightIcon}
             </div>
           </Menu.Item>
           <Menu.Item>
-            <div className={'flex justify-center cursor-pointer'} onClick={() => setDark(true)}>
+            <div className={'flex justify-center cursor-pointer'} onClick={() => setTheme('dark')}>
               {darkIcon}
             </div>
           </Menu.Item>

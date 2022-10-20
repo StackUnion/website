@@ -6,17 +6,38 @@ import { SupportedLocaleList } from 'i18n'
 export interface MetaProps {
   title: string
   description?: string
+  keywords?: string[]
+  ogImage?: boolean
+  author?: string
 }
 
-export const Meta: FC<MetaProps> = ({ description, title }) => {
+export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, author }) => {
   const { asPath } = useRouter()
 
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content={description ?? title} />
+      <meta name={'description'} content={description ?? title} />
+      {keywords && <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', '')}></meta>}
+      <meta property={'og:title'} content={title} />
+      <meta property={'og:description'} content={description ?? title} />
+      <meta property={'og:site_name'} content={'StackUnion'} />
+      {ogImage && (
+        <>
+          <meta
+            property={'og:image:url'}
+            content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og?title=${title}&author=${author}`}
+          />
+          <meta property={'og:image:type'} content={'image/png'} />
+          <meta property={'og:image:width'} content={'1200'} />
+          <meta property={'og:image:height'} content={'630'} />
+        </>
+      )}
       {SupportedLocaleList.map(lc => (
-        <link key={lc} rel="alternate" hrefLang={lc} href={`${process.env.NEXT_PUBLIC_ORIGIN}/${lc}${asPath}`} />
+        <>
+          <meta property={'og:locale:alternate'} content={lc} />
+          <link key={lc} rel={'alternate'} hrefLang={lc} href={`${process.env.NEXT_PUBLIC_ORIGIN}/${lc}${asPath}`} />
+        </>
       ))}
     </Head>
   )

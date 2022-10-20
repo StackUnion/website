@@ -9,10 +9,18 @@ export interface AutocompleteItem {
   title: Localized[]
 }
 
+export interface User {
+  uid: string
+  nid: string
+  display: string
+  createdAt: string
+}
+
 export interface Ion {
   uid: string
   title: Localized[]
   createdAt: string
   content: Localized[]
   keywords: string[]
+  author: User
 }

@@ -7,4 +7,11 @@ export default {
     css: 'Styles and preprocessors',
     react: 'Library for Frontend development',
   },
+  ion: {
+    author: 'Author',
+  },
+  miscellaneous: {
+    copyright: '(C) StackUnion Created By LLC "Nodium" 2022',
+    contact: 'Suggestions: limpix31@gmail.com or Telegram @LIMPIX31',
+  },
 }

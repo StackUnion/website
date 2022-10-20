@@ -58,14 +58,18 @@ export const CodeEnv: FC<JId & { children: string; lang?: string }> = ({ childre
           isSingle && 'rounded-l',
         )}
       >
-        <SyntaxHighlighter className={'codeblock'} style={{} as any} language={groups?.[selected]?.lang}>
+        <SyntaxHighlighter
+          className={'codeblock overflow-x-auto'}
+          style={{} as any}
+          language={groups?.[selected]?.lang}
+        >
           {String(groups?.[selected]?.code)}
         </SyntaxHighlighter>
         <div
           onClick={() => (setCopied(true), navigator?.clipboard?.writeText?.(groups?.[selected]?.code))}
           className={cn(
-            'w-7 h-7 flex items-center justify-center absolute right-4 top-3.5 border border-light-200 dark:border-dark-100 rounded bg-light-200 dark:bg-dark-200 cursor-pointer transition-colors',
-            copied && 'bg-lime-500 dark:bg-lime-300 text-dark border-lime-500 dark:border-lime-300',
+            'w-7 h-7 flex items-center justify-center absolute right-4 top-3.5 border border-light-200 dark:border-dark-100 rounded bg-light-200 dark:bg-dark-200 cursor-pointer transition-all opacity-20 hover:opacity-100',
+            copied && 'bg-lime-500 dark:bg-lime-300 text-dark border-lime-500 dark:border-lime-300 !opacity-100',
           )}
         >
           {copied ? (

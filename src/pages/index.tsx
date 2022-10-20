@@ -12,7 +12,7 @@ import { ErrorBoundary } from 'components/utils/ErrorBoundary'
 import { useRouter } from 'next/router'
 
 const Page: NextPage = () => {
-  const i18n = useI18n()
+  const { i18n } = useI18n()
   const router = useRouter()
 
   return (

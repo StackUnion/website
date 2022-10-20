@@ -3,7 +3,7 @@ import { Meta } from 'components/utils/Meta'
 import { GetServerSideProps, NextPage } from 'next'
 import { apiFetcher, Ion, unwrapLocalized } from 'api'
 import { FC, Suspense } from 'react'
-import { useLocale } from 'hooks/useI18n'
+import { useI18n, useLocale } from 'hooks/useI18n'
 import { Import } from 'utils/import'
 import { Spinner } from 'components/atoms/Spinner'
 
@@ -30,17 +30,20 @@ export const getServerSideProps: GetServerSideProps = async ({ params = {} }) =>
 }
 
 export const IonContent: FC<Props> = ({ ion }) => {
-  const locale = useLocale()
+  const { i18n, localize } = useI18n()
 
   return (
     <div>
       <div className={'mt-8 max-w-screen-lg mx-auto px-4 xl:px-0 font-jetbrains text-dark dark:text-light'}>
         <section className={'mb-10'}>
-          <h1 className={'w-full text-left font-display font-bold text-5xl'}>{unwrapLocalized(ion.title, locale)}</h1>
+          <h1 className={'w-full text-left font-display font-bold text-5xl'}>{localize(ion.title)}</h1>
+          <span className={'font-jetbrains text-light-400 dark:text-light-600'}>
+            {i18n.ion.author}: {ion.author.display}
+          </span>
         </section>
         <section className={'text-justify mb-10 font-serif'}>
           <Suspense fallback={<Spinner />}>
-            <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
+            <Mds>{localize(ion.content)}</Mds>
           </Suspense>
         </section>
       </div>
@@ -49,11 +52,11 @@ export const IonContent: FC<Props> = ({ ion }) => {
 }
 
 export const Page: NextPage<Props> = ({ ion }) => {
-  const locale = useLocale()
+  const { localize } = useI18n()
 
   return (
     <Pg>
-      <Meta title={unwrapLocalized(ion.title, locale)} />
+      <Meta title={localize(ion.title)} keywords={ion.keywords} ogImage author={ion.author.nid} />
       <IonContent ion={ion} />
     </Pg>
   )

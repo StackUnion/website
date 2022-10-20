@@ -38,10 +38,10 @@ export const Mds: FC<MdsProps> = ({ children, className, inline, ...props }) => 
         : {
             h1: ({ node, children, ...props }) => createAnchor('h1', children[0] as string, props, 'text-4xl'),
             h2: ({ node, children, ...props }) => createAnchor('h2', children[0] as string, props, 'text-3xl'),
-            h3: ({ node, ...props }) => <h3 {...props} className={'text-2xl'} />,
-            h4: ({ node, ...props }) => <h4 {...props} className={'text-xl'} />,
-            h5: ({ node, ...props }) => <h5 {...props} className={'text-lg'} />,
-            h6: ({ node, ...props }) => <h6 {...props} className={'text-md'} />,
+            h3: ({ node, ...props }) => <h3 {...props} className={'font-display text-2xl my-3'} />,
+            h4: ({ node, ...props }) => <h4 {...props} className={'font-display text-xl my-2'} />,
+            h5: ({ node, ...props }) => <h5 {...props} className={'font-display text-lg my-2'} />,
+            h6: ({ node, ...props }) => <h6 {...props} className={'font-display text-md my-2'} />,
             blockquote: ({ node, ...props }) => (
               <blockquote className={'text-light-600 border-l-4 border-light-600 pl-2 py-1 rounded my-2'} {...props} />
             ),
@@ -61,7 +61,7 @@ export const Mds: FC<MdsProps> = ({ children, className, inline, ...props }) => 
               return !inline && match ? (
                 <CodeEnv lang={match[1]}>{String(children)}</CodeEnv>
               ) : (
-                <code className={className} {...props}>
+                <code className={cn('bg-light-200 dark:bg-dark-200 px-1 rounded', className)} {...props}>
                   {children}
                 </code>
               )
