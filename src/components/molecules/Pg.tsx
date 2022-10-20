@@ -7,7 +7,7 @@ export const Pg: FC<JId> = ({ className, children, ...props }) => (
   <div className={'min-h-screen w-full flex flex-col justify-between'} {...props}>
     <Header />
     <div className={'h-16'} />
-    <main className={cn('grow flex flex-col', className)}>{children}</main>
+    <main className={cn('grow', className)}>{children}</main>
     <Footer />
   </div>
 )

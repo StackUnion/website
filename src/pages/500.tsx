@@ -6,7 +6,7 @@ export const Page: NextPage = () => {
   return (
     <Pg>
       <Meta title={'Server error'} />
-      <div className={'grow flex flex-col items-center justify-center font-jetbrains overflow-hidden'}>
+      <div className={'h-full flex flex-col items-center justify-center font-jetbrains overflow-hidden'}>
         <div className={'-ml-32'}>
           <span className={'text-9xl font-extrabold text-red-500 dark:text-red-500 px-5'}>500</span>
           <span className={'text-9xl font-extrabold text-red-500 dark:text-red-500 opacity-50 px-5'}>500</span>
