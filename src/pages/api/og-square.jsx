@@ -1,5 +1,5 @@
 import { ImageResponse } from '@vercel/og'
-import { shade, tint } from 'polished/dist/polished.cjs'
+import Color from 'color'
 
 export const config = {
   runtime: 'experimental-edge',
@@ -22,7 +22,7 @@ const colors = [
 ]
 
 export default async function () {
-  const accent = colors[Math.floor(Math.random() * colors.length)]
+  const accent = Color(colors[Math.floor(Math.random() * colors.length)])
 
   return new ImageResponse(
     (
@@ -31,7 +31,7 @@ export default async function () {
           height: '100%',
           width: '100%',
           padding: '128px',
-          backgroundColor: shade(0.5, accent),
+          backgroundColor: accent.darken(0.5).rgb().string(),
           color: 'white',
           display: 'flex',
           alignItems: 'center',
@@ -39,7 +39,7 @@ export default async function () {
         }}
       >
         <svg width="400" height="400" version="1.1" viewBox="0 0 270.93 270.93" xmlns="http://www.w3.org/2000/svg">
-          <g fill="none" stroke={tint(0.5, accent)} strokeLinecap="round" strokeWidth="24.975">
+          <g fill="none" stroke={accent.lighten(0.5).rgb().string()} strokeLinecap="round" strokeWidth="24.975">
             <path d="m32.961 76.285 102.51-59.182" />
             <path d="m237.97 76.285-102.51 59.182" />
             <path d="m135.47 17.103 102.51 59.182" opacity=".2" />
