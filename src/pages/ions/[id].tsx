@@ -61,7 +61,7 @@ export const Page: NextPage<Props> = ({ ion }) => {
         keywords={ion.keywords}
         ogImage
         author={ion.author.nid}
-        description={localize(ion.content).slice(0, 200) + '...'}
+        description={localize(ion.content).slice(0, 60)}
       />
       <IonContent ion={ion} />
     </Pg>
