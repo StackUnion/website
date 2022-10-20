@@ -1,3 +1,2 @@
 User-agent: *
 User-Agent: AdsBot-Google
-Sitemap: https://nodium.ru/sitemap
