@@ -1,5 +1,4 @@
 import { ImageResponse } from '@vercel/og'
-import Color from 'color'
 
 export const config = {
   runtime: 'experimental-edge',
@@ -9,25 +8,7 @@ const font = fetch(
   'https://github.com/JetBrains/JetBrainsMono/blob/master/fonts/otf/JetBrainsMono-ExtraBold.otf?raw=true',
 ).then(res => res.arrayBuffer())
 
-const colors = [
-  '#ff0044',
-  '#d0ff00',
-  '#ffdd00',
-  '#5500ff',
-  '#c800ff',
-  '#ff5900',
-  '#ff0088',
-  '#00ffe1',
-  '#00ffa6',
-  '#5eff00',
-  '#ff2600',
-  '#d5d5d5',
-  '#fdffdc',
-]
-
 export default async function (req) {
-  const accent = Color(colors[Math.floor(Math.random() * colors.length)])
-
   const fontData = await font
 
   const { searchParams } = new URL(req.url)
@@ -42,7 +23,7 @@ export default async function (req) {
           height: '100%',
           width: '100%',
           padding: '128px',
-          backgroundColor: accent.darken(0.5).rgb().string(),
+          backgroundColor: '#838374',
           fontFamily: 'jetbrains',
           color: 'white',
           display: 'flex',
@@ -59,7 +40,7 @@ export default async function (req) {
           style={{ transform: 'translate(-36.5%, -24%)' }}
         >
           <path d="m243.25 183.25 180.3 104.1-63.316 109.67-231.37-132.57" fillOpacity=".2" />
-          <g fill="none" stroke={accent.darken(0.8).rgb().string()} strokeLinecap="round" strokeWidth="24.975">
+          <g fill="none" stroke={'#373831'} strokeLinecap="round" strokeWidth="24.975">
             <path d="m32.961 76.285 102.51-59.182" />
             <path d="m237.97 76.285-102.51 59.182" />
             <path d="m32.961 76.285 102.51 59.182" />
@@ -73,11 +54,11 @@ export default async function (req) {
         <div tw={'flex flex-col h-full w-full justify-between'}>
           <span
             tw={'font-jetbrains text-6xl py-1 px-3 inline'}
-            style={{ color: accent.darken(0.5).rgb().string(), backgroundColor: accent.lighten(0.5).rgb().string() }}
+            style={{ color: '#838374', backgroundColor: '#fdffdc' }}
           >
             {title}
           </span>
-          <span tw={'font-jetbrains text-6xl opacity-50'} style={{ color: accent.lighten(0.5).rgb().string() }}>
+          <span tw={'font-jetbrains text-6xl opacity-50'} style={{ color: '#fdffdc' }}>
             @ {author}
           </span>
         </div>
