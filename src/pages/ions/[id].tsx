@@ -56,7 +56,13 @@ export const Page: NextPage<Props> = ({ ion }) => {
 
   return (
     <Pg>
-      <Meta title={localize(ion.title)} keywords={ion.keywords} ogImage author={ion.author.nid} />
+      <Meta
+        title={localize(ion.title)}
+        keywords={ion.keywords}
+        ogImage
+        author={ion.author.nid}
+        description={localize(ion.content).slice(0, 200) + '...'}
+      />
       <IonContent ion={ion} />
     </Pg>
   )
