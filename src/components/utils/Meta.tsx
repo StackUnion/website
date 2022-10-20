@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { SupportedLocaleList } from 'i18n'
 import rmd from 'remove-markdown'
+import { useLocale } from 'hooks/useI18n'
 
 export interface MetaProps {
   title: string
@@ -13,6 +14,7 @@ export interface MetaProps {
 }
 
 export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, author }) => {
+  const locale = useLocale()
   const { asPath } = useRouter()
 
   return (
@@ -25,10 +27,11 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
       <meta property={'og:title'} content={title} />
       <meta property={'og:description'} content={rmd(description ?? '')} />
       <meta property={'og:site_name'} content={'StackUnion'} />
+      <meta property={'og:locale'} content={locale} />
       {ogImage && (
         <>
           <meta
-            property={'og:image:url'}
+            property={'og:image'}
             content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og?title=${title}&author=${author}`}
           />
           <meta property={'og:image:type'} content={'image/png'} />
