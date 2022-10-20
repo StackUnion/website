@@ -1,5 +1,5 @@
 import { ImageResponse } from '@vercel/og'
-import { shade, tint } from 'polished'
+import { shade, tint } from 'polished/dist/polished.cjs'
 
 export const config = {
   runtime: 'experimental-edge',
