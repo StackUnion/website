@@ -30,13 +30,14 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
       <meta property={'og:locale'} content={locale} />
       {ogImage && (
         <>
-          <meta property={'og:image:type'} content={'image/png'} />
-          <meta property={'og:image:width'} content={'1280'} />
-          <meta property={'og:image:height'} content={'670'} />
           <meta
             property={'og:image'}
             content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og-full?title=${title}&author=${author}`}
           />
+          <meta property={'og:image:type'} content={'image/png'} />
+          <meta property={'og:image:width'} content={'1280'} />
+          <meta property={'og:image:height'} content={'670'} />
+          <meta name={'twitter:card'} content={'summary_large_image'} />
           <meta
             property={'twitter:image'}
             content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og-full?title=${title}&author=${author}`}
@@ -47,10 +48,10 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
           />
         </>
       )}
+      <meta property={'og:image'} content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og-square`} />
       <meta property={'og:image:type'} content={'image/png'} />
       <meta property={'og:image:width'} content={'512'} />
       <meta property={'og:image:height'} content={'512'} />
-      <meta property={'og:image'} content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og-square`} />
       {SupportedLocaleList.map(lc => (
         <>
           <meta property={'og:locale:alternate'} content={lc} />
