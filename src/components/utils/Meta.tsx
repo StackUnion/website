@@ -31,8 +31,8 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
       {ogImage && (
         <>
           <meta property={'og:image:type'} content={'image/png'} />
-          <meta property={'og:image:width'} content={'1200'} />
-          <meta property={'og:image:height'} content={'630'} />
+          <meta property={'og:image:width'} content={'1280'} />
+          <meta property={'og:image:height'} content={'670'} />
           <meta
             property={'og:image'}
             content={`${process.env.NEXT_PUBLIC_ORIGIN}/api/og-full?title=${title}&author=${author}`}
