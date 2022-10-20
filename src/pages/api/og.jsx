@@ -31,12 +31,8 @@ export default async function (req) {
           justifyContent: 'space-between',
         }}
       >
-        <span tw={'font-jetbrains text-5xl text-[#732c35] bg-[#ffa6b1] py-1 px-3 inline'}>
-          {title}
-        </span>
-        <span tw={'font-jetbrains text-[#ffa6b1] text-6xl opacity-50'}>
-          @ {author}
-        </span>
+        <span tw={'font-jetbrains text-5xl text-[#732c35] bg-[#ffa6b1] py-1 px-3 inline'}>{title}</span>
+        <span tw={'font-jetbrains text-[#ffa6b1] text-6xl opacity-50'}>@ {author}</span>
       </div>
     ),
     {

@@ -7,6 +7,7 @@ import { Import } from 'utils/import'
 const CodeEnv = Import('CodeEnv', () => import('components/organisms/CodeEnv'))
 const Markdown = Import('default', () => import('react-markdown'))
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createAnchor = (Tag: any, content: string, props: any, className: string) => (
   <a
     {...(props as object)}
@@ -25,6 +26,7 @@ export interface MdsProps extends JId {
   inline?: boolean
 }
 
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export const Mds: FC<MdsProps> = ({ children, className, inline, ...props }) => (
   <Markdown
     {...props}
