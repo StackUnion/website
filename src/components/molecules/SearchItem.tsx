@@ -15,7 +15,7 @@ export const SearchItem: FC<SearchItemProps> = ({ ion }) => {
 
   return (
     <Link href={`/ions/${ion.uid}`} key={ion.uid} className={'!outline-none'}>
-      <div
+      <a
         className={
           'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded gap-2'
         }
@@ -33,7 +33,7 @@ export const SearchItem: FC<SearchItemProps> = ({ ion }) => {
             <Tag key={kw}>{kw}</Tag>
           ))}
         </div>
-      </div>
+      </a>
     </Link>
   )
 }
