@@ -37,9 +37,9 @@ export const IonContent: FC<Props> = ({ ion }) => {
       <div className={'mt-8 max-w-screen-lg mx-auto px-4 xl:px-0 font-jetbrains text-dark dark:text-light'}>
         <section className={'mb-10'}>
           <h1 className={'w-full text-left font-display font-bold text-5xl'}>{localize(ion.title)}</h1>
-          <span className={'font-jetbrains text-light-400 dark:text-light-600'}>
+          <div className={'font-jetbrains text-light-400 dark:text-light-600 mt-2'}>
             {i18n.ion.author}: {ion.author.display}
-          </span>
+          </div>
         </section>
         <section className={'text-justify mb-10 font-serif'}>
           <Mds>{localize(ion.content)}</Mds>
