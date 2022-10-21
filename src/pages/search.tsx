@@ -52,9 +52,7 @@ export const Page: NextPage = () => {
                       'font-jetbrains text-light-400 dark:text-dark-50 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
-                    <Suspense fallback={<Spinner />}>
-                      <Mds inline>{unwrapLocalized(ion.content, locale)}</Mds>
-                    </Suspense>
+                    <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
                   </div>
                   <div className={'flex gap-1 mt-1 wrap'}>
                     {ion.keywords.map(kw => (
