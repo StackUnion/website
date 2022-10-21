@@ -16,3 +16,5 @@ export const unindent = (input: string) => {
 export const explain = (target: string, placeholders: Record<string, string | number | boolean>) => {
   return target.replace(/\{(?<key>\w+)}/g, (...[, key]) => String(placeholders[key]))
 }
+
+export const firstLine = (s: string) => s.split('\n')[0]

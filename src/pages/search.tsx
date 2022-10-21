@@ -11,6 +11,7 @@ import { Tag } from 'components/molecules/Tag'
 import Link from 'next/link'
 import { useI18n } from 'hooks/useI18n'
 import rmd from 'remove-markdown'
+import { firstLine } from 'utils/string'
 
 export const Page: NextPage = () => {
   const [query, setQuery] = useState('')
@@ -50,7 +51,7 @@ export const Page: NextPage = () => {
                       'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
-                    {rmd(localize(ion.content))}
+                    {rmd(firstLine(localize(ion.content)))}
                   </div>
                   <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {ion.keywords.map(kw => (

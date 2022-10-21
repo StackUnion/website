@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { SupportedLocaleList } from 'i18n'
 import rmd from 'remove-markdown'
 import { useLocale } from 'hooks/useI18n'
+import { firstLine } from 'utils/string'
 
 export interface MetaProps {
   title: string
@@ -25,7 +26,7 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
         <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', ' ').replaceAll('\n', ' ')}></meta>
       )}
       <meta property={'og:title'} content={title} />
-      <meta property={'og:description'} content={rmd(description ?? '')} />
+      <meta property={'og:description'} content={rmd(firstLine(description ?? ''))} />
       <meta property={'og:site_name'} content={'StackUnion'} />
       <meta property={'og:locale'} content={locale} />
       {ogImage && (

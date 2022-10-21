@@ -8,6 +8,7 @@ import { useI18n } from 'hooks/useI18n'
 import Link from 'next/link'
 import { Tag } from 'components/molecules/Tag'
 import rmd from 'remove-markdown'
+import { firstLine } from 'utils/string'
 
 export interface SearchBoxProps {
   onSearch?: (query: string) => void
@@ -77,7 +78,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, val
                       'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
-                    {rmd(localize(possible.content))}
+                    {rmd(firstLine(localize(possible.content)))}
                   </div>
                   <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {possible.keywords.map(kw => (
