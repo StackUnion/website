@@ -9,6 +9,7 @@ export default {
   },
   ion: {
     author: 'Author',
+    ions_title: 'Ions',
   },
   miscellaneous: {
     copyright: '(C) StackUnion Created By LLC "Nodium" 2022',

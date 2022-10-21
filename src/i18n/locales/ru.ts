@@ -11,6 +11,7 @@ export default {
   },
   ion: {
     author: 'Автор',
+    ions_title: 'Ионы',
   },
   miscellaneous: {
     copyright: '(C) StackUnion Создано ООО "Nodium" 2022',

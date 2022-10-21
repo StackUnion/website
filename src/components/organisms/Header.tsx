@@ -13,7 +13,11 @@ export const Header: FC = () => (
   >
     <div className={'max-w-screen-xl mx-auto flex items-center h-full px-8 xl:px-0 flex justify-between'}>
       <LogoWithText />
-      <div />
+      <nav>
+        <Link href={'/ions'}>
+          <a className={'font-jetbrains opacity-0'}>Ионы</a>
+        </Link>
+      </nav>
       <div className={'flex gap-4 items-center'}>
         <LocaleSwitcher />
         <ThemeSwitcher />
