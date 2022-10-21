@@ -1,15 +1,13 @@
-import { FC, Suspense, useCallback, useEffect, useState } from 'react'
+import { FC, useCallback, useEffect, useState } from 'react'
 import { Input } from 'components/atoms/Input'
 import { useDebounce } from 'hooks/useDebounce'
 import useSWR from 'swr'
-import { apiFetcher, AutocompleteItem, Ion, unwrapLocalized } from 'api'
+import { apiFetcher, AutocompleteItem, Ion } from 'api'
 import cn from 'classnames'
-import { useLocale } from 'hooks/useI18n'
+import { useI18n } from 'hooks/useI18n'
 import Link from 'next/link'
 import { Tag } from 'components/molecules/Tag'
-import { Import } from 'utils/import'
-import { Spinner } from 'components/atoms/Spinner'
-const Mds = Import('Mds', () => import('components/organisms/Mds'))
+import rmd from 'remove-markdown'
 
 export interface SearchBoxProps {
   onSearch?: (query: string) => void
@@ -18,7 +16,7 @@ export interface SearchBoxProps {
 }
 
 export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, value }) => {
-  const locale = useLocale()
+  const { localize } = useI18n()
   const [search, setSearch] = useState('')
   useEffect(() => setSearch(value ?? ''), [value])
   const debouncedSearch = useDebounce(search, 300)
@@ -73,15 +71,13 @@ export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, val
                     'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer'
                   }
                 >
-                  <div className={'font-bold text-accent-300'}>{unwrapLocalized(possible.title, locale)}</div>
+                  <div className={'font-bold text-accent-300'}>{localize(possible.title)}</div>
                   <div
                     className={
-                      'font-jetbrains text-light-400 dark:text-dark-50 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
+                      'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
-                    <Suspense fallback={<Spinner />}>
-                      <Mds inline>{unwrapLocalized(possible.content, locale)}</Mds>
-                    </Suspense>
+                    {rmd(localize(possible.content))}
                   </div>
                   <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {possible.keywords.map(kw => (
@@ -96,7 +92,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, val
               .map((item, i) => (
                 <Link href={`/ions/${item.uid}`} key={item.uid} tabIndex={1 + i} className={'!outline-none'}>
                   <div className={'transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer'}>
-                    <div>{unwrapLocalized(item.title, locale)}</div>
+                    <div>{localize(item.title)}</div>
                   </div>
                 </Link>
               ))}
@@ -108,17 +104,17 @@ export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, val
         onClick={doSearch}
       >
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
+          xmlns='http://www.w3.org/2000/svg'
+          fill='none'
+          viewBox='0 0 24 24'
           strokeWidth={1.5}
-          stroke="currentColor"
-          className="w-6 h-6"
+          stroke='currentColor'
+          className='w-6 h-6'
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
           />
         </svg>
       </div>

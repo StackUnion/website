@@ -3,21 +3,19 @@ import { Meta } from 'components/utils/Meta'
 import { Pg } from 'components/templates/Pg'
 import { SearchBox } from 'components/organisms/SearchBox'
 import { ErrorBoundary } from 'components/utils/ErrorBoundary'
-import { Suspense, useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
-import { apiFetcher, Ion, unwrapLocalized } from 'api'
-import { Spinner } from 'components/atoms/Spinner'
+import { apiFetcher, Ion } from 'api'
 import { Tag } from 'components/molecules/Tag'
 import Link from 'next/link'
-import { useLocale } from 'hooks/useI18n'
-import { Import } from 'utils/import'
-const Mds = Import('Mds', () => import('components/organisms/Mds'))
+import { useI18n } from 'hooks/useI18n'
+import rmd from 'remove-markdown'
 
 export const Page: NextPage = () => {
   const [query, setQuery] = useState('')
   const router = useRouter()
-  const locale = useLocale()
+  const { localize } = useI18n()
 
   useEffect(() => {
     setQuery((router.query?.q as string) ?? '')
@@ -46,13 +44,13 @@ export const Page: NextPage = () => {
                     'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded gap-2'
                   }
                 >
-                  <div className={'font-bold text-accent-300'}>{unwrapLocalized(ion.title, locale)}</div>
+                  <div className={'font-bold text-accent-300'}>{localize(ion.title)}</div>
                   <div
                     className={
-                      'font-jetbrains text-light-400 dark:text-dark-50 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
+                      'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
                     }
                   >
-                    <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
+                    {rmd(localize(ion.content))}
                   </div>
                   <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {ion.keywords.map(kw => (

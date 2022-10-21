@@ -42,7 +42,9 @@ export const IonContent: FC<Props> = ({ ion }) => {
           </div>
         </section>
         <section className={'text-justify mb-10 font-serif'}>
-          <Mds>{localize(ion.content)}</Mds>
+          <Suspense fallback={<Spinner />}>
+            <Mds>{localize(ion.content)}</Mds>
+          </Suspense>
         </section>
       </div>
     </div>

@@ -6,8 +6,12 @@
   @apply text-dark-50 dark:text-light-400 bg-light dark:bg-[rgb(37,40,44)] p-4 [line-height:1.32rem] !important;
 }
 
-.codeblock .keyword {
+.codeblock .keyword, .tag {
   @apply text-red-500 dark:text-red-400;
+}
+
+.codeblock .tag.attr-value {
+  @apply text-yellow-600 dark:text-yellow-300;
 }
 
 .codeblock .operator {
@@ -26,6 +30,10 @@
   @apply text-emerald-500 dark:text-sky-300;
 }
 
+.codeblock .class, .selector {
+  @apply text-emerald-500 dark:text-sky-300;
+}
+
 .codeblock .builtin {
   @apply text-red-500 dark:text-red-400;
 }
@@ -34,7 +42,7 @@
   @apply text-purple-500 dark:text-lime-300;
 }
 
-.codeblock .number {
+.codeblock .number, .color {
   @apply text-blue-500 dark:text-blue-300;
 }
 
