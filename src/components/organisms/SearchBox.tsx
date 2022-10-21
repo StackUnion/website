@@ -9,7 +9,7 @@ import Link from 'next/link'
 import { Tag } from 'components/molecules/Tag'
 import { Import } from 'utils/import'
 import { Spinner } from 'components/atoms/Spinner'
-const Mds = Import('Mds', () => import('components/atoms/Mds'))
+const Mds = Import('Mds', () => import('components/organisms/Mds'))
 
 export interface SearchBoxProps {
   onSearch?: (query: string) => void
@@ -83,7 +83,7 @@ export const SearchBox: FC<SearchBoxProps> = ({ onSearch, autosearch = true, val
                       <Mds inline>{unwrapLocalized(possible.content, locale)}</Mds>
                     </Suspense>
                   </div>
-                  <div className={'flex gap-1 mt-1 wrap'}>
+                  <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {possible.keywords.map(kw => (
                       <Tag key={kw}>{kw}</Tag>
                     ))}

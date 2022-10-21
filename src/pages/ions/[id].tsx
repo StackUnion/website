@@ -7,7 +7,7 @@ import { useI18n } from 'hooks/useI18n'
 import { Import } from 'utils/import'
 import { Spinner } from 'components/atoms/Spinner'
 
-const Mds = Import('Mds', () => import('components/atoms/Mds'))
+const Mds = Import('Mds', () => import('components/organisms/Mds'))
 
 interface Props {
   ion: Ion

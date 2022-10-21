@@ -12,7 +12,7 @@ import { Tag } from 'components/molecules/Tag'
 import Link from 'next/link'
 import { useLocale } from 'hooks/useI18n'
 import { Import } from 'utils/import'
-const Mds = Import('Mds', () => import('components/atoms/Mds'))
+const Mds = Import('Mds', () => import('components/organisms/Mds'))
 
 export const Page: NextPage = () => {
   const [query, setQuery] = useState('')
@@ -43,7 +43,7 @@ export const Page: NextPage = () => {
               <Link href={`/ions/${ion.uid}`} key={ion.uid} className={'!outline-none'}>
                 <div
                   className={
-                    'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded'
+                    'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded gap-2'
                   }
                 >
                   <div className={'font-bold text-accent-300'}>{unwrapLocalized(ion.title, locale)}</div>
@@ -54,7 +54,7 @@ export const Page: NextPage = () => {
                   >
                     <Mds>{unwrapLocalized(ion.content, locale)}</Mds>
                   </div>
-                  <div className={'flex gap-1 mt-1 wrap'}>
+                  <div className={'flex gap-1 mt-1 flex-wrap'}>
                     {ion.keywords.map(kw => (
                       <Tag key={kw}>{kw}</Tag>
                     ))}
