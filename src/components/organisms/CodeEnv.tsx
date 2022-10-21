@@ -29,13 +29,13 @@ export const CodeEnv: FC<JId & { children: string; lang?: string }> = ({ childre
   return (
     <div className={'w-full flex flex-col my-3'}>
       {!isSingle && (
-        <div className={'h-9 flex text-[0.85rem] text-dark dark:text-light rounded-tl'}>
+        <div className={'h-9 flex text-[0.85rem] text-dark dark:text-light rounded-tl overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'}>
           {groups.map((group, i) => (
             <div
               key={i}
               onClick={() => setSelected(i)}
               className={cn(
-                'relative z-10 top-[1px] border-t first:border-l last:border-r border-b !border-b-light dark:!border-b-[rgb(37,40,44)] border-light-200 dark:border-dark-200 bg-light dark:bg-[rgb(37,40,44)] h-full items-center font-jetbrains font-bold flex flex gap-2 px-4 hover:text-accent dark:hover:text-accent-400 cursor-pointer first:rounded-tl last:rounded-tr transition-colors before:content-[""] before:block before:absolute before:w-[1px] before:h-1/2 before:bg-light-500 dark:before:bg-light-700 before:left-0 first:before:opacity-0',
+                'flex-shrink-0 relative z-10 top-[1px] border-t first:border-l last:border-r border-b !border-b-light dark:!border-b-[rgb(37,40,44)] border-light-200 dark:border-dark-200 bg-light dark:bg-[rgb(37,40,44)] h-full items-center font-jetbrains font-bold flex flex gap-2 px-4 hover:text-accent dark:hover:text-accent-400 cursor-pointer first:rounded-tl last:rounded-tr transition-colors before:content-[""] before:block before:absolute before:w-[1px] before:h-1/2 before:bg-light-500 dark:before:bg-light-700 before:left-0 first:before:opacity-0',
                 i === selected && 'text-accent dark:text-accent-400',
               )}
             >
