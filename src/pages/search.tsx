@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import { Meta } from 'components/utils/Meta'
-import { Pg } from 'components/molecules/Pg'
+import { Pg } from 'components/templates/Pg'
 import { SearchBox } from 'components/organisms/SearchBox'
 import { ErrorBoundary } from 'components/utils/ErrorBoundary'
 import { Suspense, useCallback, useEffect, useState } from 'react'

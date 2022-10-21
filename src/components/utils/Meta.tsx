@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Fragment } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { SupportedLocaleList } from 'i18n'
@@ -22,7 +22,7 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
       <title>{title}</title>
       <meta name={'description'} content={rmd(description ?? '')} />
       {keywords && (
-        <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', '').replaceAll('\n', ' ')}></meta>
+        <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', ' ').replaceAll('\n', ' ')}></meta>
       )}
       <meta property={'og:title'} content={title} />
       <meta property={'og:description'} content={rmd(description ?? '')} />
@@ -53,10 +53,10 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
       <meta property={'og:image:width'} content={'512'} />
       <meta property={'og:image:height'} content={'512'} />
       {SupportedLocaleList.map(lc => (
-        <>
+        <Fragment key={lc}>
           <meta property={'og:locale:alternate'} content={lc} />
           <link key={lc} rel={'alternate'} hrefLang={lc} href={`${process.env.NEXT_PUBLIC_ORIGIN}/${lc}${asPath}`} />
-        </>
+        </Fragment>
       ))}
     </Head>
   )

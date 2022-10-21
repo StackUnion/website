@@ -1,9 +1,9 @@
-import { Pg } from 'components/molecules/Pg'
+import { Pg } from 'components/templates/Pg'
 import { Meta } from 'components/utils/Meta'
 import { GetServerSideProps, NextPage } from 'next'
-import { apiFetcher, Ion, unwrapLocalized } from 'api'
+import { apiFetcher, Ion } from 'api'
 import { FC, Suspense } from 'react'
-import { useI18n, useLocale } from 'hooks/useI18n'
+import { useI18n } from 'hooks/useI18n'
 import { Import } from 'utils/import'
 import { Spinner } from 'components/atoms/Spinner'
 

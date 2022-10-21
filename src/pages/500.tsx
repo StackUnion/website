@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import { Pg } from 'components/molecules/Pg'
+import { Pg } from 'components/templates/Pg'
 import { Meta } from 'components/utils/Meta'
 
 export const Page: NextPage = () => {

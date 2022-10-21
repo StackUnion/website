@@ -1,4 +1,4 @@
-import { Pg } from 'components/molecules/Pg'
+import { Pg } from 'components/templates/Pg'
 import { NextPage } from 'next'
 import { Meta } from 'components/utils/Meta'
 import { useI18n } from 'hooks/useI18n'
