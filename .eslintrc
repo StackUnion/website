@@ -28,6 +28,7 @@
     "prettier/prettier": "error",
     "indent": "off",
     "import/no-anonymous-default-export": "off",
+    "react/display-name": "off",
     "linebreak-style": [
       "error",
       "unix"

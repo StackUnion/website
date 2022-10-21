@@ -1,7 +1,7 @@
-import { FC } from 'react'
+import { forwardRef, Ref } from 'react'
 import cn from 'classnames'
 
-export const Input: FC<JIi> = ({ className, ...props }) => (
+export const Input = forwardRef(({ className, ...props }: JIi, ref: Ref<HTMLInputElement>) => (
   <input
     className={cn(
       'font-jetbrains text-dark dark:text-light px-3 h-10 w-full bg-light-50 dark:bg-dark-600 rounded border border-light-400 dark:border-dark-400 shadow outline-none placeholder:light-400 dark:placeholder:dark-400 focus:shadow-lg transition-all focus:ring-2 ring-accent ring-opacity-100 focus:border-none',
@@ -9,5 +9,6 @@ export const Input: FC<JIi> = ({ className, ...props }) => (
       className,
     )}
     {...props}
+    ref={ref}
   />
-)
+))
