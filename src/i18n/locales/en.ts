@@ -1,6 +1,9 @@
 export default {
   hello_world: 'Hello world',
   error_boundary: 'An error has occurred.  Reason: {reason}',
+  profile: {
+    login: 'Login',
+  },
   most_tagged: {
     javascript: 'Programming language',
     typescript: 'Types for Javascript',
