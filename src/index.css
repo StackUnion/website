@@ -15,11 +15,11 @@
 }
 
 .codeblock .operator {
-  @apply text-indigo-800 dark:text-indigo-300;
+  @apply text-indigo-800 dark:text-indigo-300 !important;
 }
 
 .codeblock .punctuation {
-  @apply text-light-400 dark:text-light-700;
+  @apply text-light-400 dark:text-light-700 !important;
 }
 
 .codeblock .class-name {
@@ -56,4 +56,28 @@
 
 .codeblock .attribute {
   @apply text-cyan-500 dark:text-cyan-300;
+}
+
+.codeblock .language-css .selector {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.codeblock .language-css {
+  @apply text-cyan-500 dark:text-cyan-300;
+}
+
+.codeblock .language-css .property {
+  @apply text-dark-50 dark:text-light-400;
+}
+
+.codeblock .unit {
+  @apply text-red-500 dark:text-red-400;
+}
+
+.codeblock .pseudo-class {
+  @apply text-rose-500 dark:text-green-300 !important;
+}
+
+.codeblock .attr-name {
+  @apply text-purple-500 dark:text-lime-300 !important;
 }
