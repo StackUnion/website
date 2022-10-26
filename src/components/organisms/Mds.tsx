@@ -38,6 +38,7 @@ export const Mds: FC<MdsProps> = ({ children, className, inline, ...props }) => 
             code: ({ node, ...props }) => <span {...props} />,
           }
         : {
+            a: ({ node, ...props }) => <a {...props} className={'text-accent underline'} />,
             h1: ({ node, children, ...props }) => createAnchor('h1', children[0] as string, props, 'text-4xl'),
             h2: ({ node, children, ...props }) => createAnchor('h2', children[0] as string, props, 'text-3xl'),
             h3: ({ node, ...props }) => <h3 {...props} className={'font-display text-2xl my-3'} />,
