@@ -21,7 +21,7 @@ export const Meta: FC<MetaProps> = ({ description, title, keywords, ogImage, aut
   return (
     <Head>
       <title>{title}</title>
-      <meta name={'description'} content={rmd(description ?? '')} />
+      <meta name={'description'} content={rmd(firstLine(description ?? ''))} />
       {keywords && (
         <meta name={'keywords'} content={keywords.join(', ').replaceAll('_', ' ').replaceAll('\n', ' ')}></meta>
       )}
