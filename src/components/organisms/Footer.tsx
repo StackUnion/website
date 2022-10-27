@@ -13,6 +13,7 @@ export const Footer: FC<JId> = ({ className, ...props }) => {
         }
       >
         <div>{i18n.miscellaneous.copyright}</div>
+        <div className={'opacity-0'}>{new Date().getDay()}</div>
         <div>{i18n.miscellaneous.contact}</div>
       </div>
     </footer>
