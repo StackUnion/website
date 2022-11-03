@@ -14,26 +14,26 @@ export const SearchItem: FC<SearchItemProps> = ({ ion }) => {
   const { localize } = useI18n()
 
   return (
-    <Link href={`/ions/${ion.uid}`} key={ion.uid} className={'!outline-none'}>
-      <a
+    <Link
+      href={`/ions/${ion.uid}`}
+      key={ion.uid}
+      className={
+        '!outline-none flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded gap-2'
+      }
+    >
+      <div className={'font-bold text-accent-300'}>{localize(ion.title)}</div>
+      <div
         className={
-          'flex flex-col transition-all px-3 py-2 hover:bg-light-200 hover:dark:bg-dark-400 cursor-pointer rounded gap-2'
+          'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
         }
       >
-        <div className={'font-bold text-accent-300'}>{localize(ion.title)}</div>
-        <div
-          className={
-            'font-jetbrains text-light-700 dark:text-light-300 text-xs overflow-ellipsis overflow-hidden [display:-webkit-box] [-webkit-box-orient:vertical] [line-clamp:2] [-webkit-line-clamp:2]'
-          }
-        >
-          {rmd(firstLine(localize(ion.content)))}
-        </div>
-        <div className={'flex gap-1 mt-1 flex-wrap'}>
-          {ion.keywords.map(kw => (
-            <Tag key={kw}>{kw}</Tag>
-          ))}
-        </div>
-      </a>
+        {rmd(firstLine(localize(ion.content)))}
+      </div>
+      <div className={'flex gap-1 mt-1 flex-wrap'}>
+        {ion.keywords.map(kw => (
+          <Tag key={kw}>{kw}</Tag>
+        ))}
+      </div>
     </Link>
   )
 }

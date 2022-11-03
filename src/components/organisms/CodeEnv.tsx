@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { Import } from 'utils/import'
 import { unindent } from 'utils/string'
 import * as icons from 'assets/icons'
-import Image from 'next/future/image'
+import Image from 'next/image'
 
 const SyntaxHighlighter = Import('default', () => import('react-syntax-highlighter/dist/cjs/prism-async'))
 
