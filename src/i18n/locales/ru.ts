@@ -3,6 +3,7 @@ import { LocaleMap } from 'i18n'
 export default {
   hello_world: 'Привет мир',
   error_boundary: 'Произошла ошибка. Причина: {reason}',
+  description: 'База знаний по web разработке',
   profile: {
     login: 'Войти',
   },

@@ -1,6 +1,7 @@
 export default {
   hello_world: 'Hello world',
   error_boundary: 'An error has occurred.  Reason: {reason}',
+  description: 'Web Development Knowledge Base',
   profile: {
     login: 'Login',
   },

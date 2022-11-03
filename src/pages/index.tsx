@@ -17,7 +17,7 @@ const Page: NextPage = () => {
 
   return (
     <Pg className={'bg-grid dark:bg-grid-dark h-full'}>
-      <Meta title={'StackUnion'} />
+      <Meta title={'StackUnion'} description={i18n.description} />
       <div className={'mt-4 lg:mt-32 xl:mt-64 max-w-screen-lg mx-auto px-4'}>
         <ErrorBoundary>
           <SearchBox onSearch={query => router.push({ pathname: 'search', query: { q: query } })} />
