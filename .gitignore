@@ -31,3 +31,6 @@ dist-ssr
 scripts
 
 mds
+
+public/robots.txt
+public/sitemap*.xml
