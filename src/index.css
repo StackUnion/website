@@ -81,3 +81,7 @@
 .codeblock .attr-name {
   @apply text-purple-500 dark:text-lime-300 !important;
 }
+
+.codeblock .parameter {
+  @apply text-orange-600 dark:text-orange-400;
+}
