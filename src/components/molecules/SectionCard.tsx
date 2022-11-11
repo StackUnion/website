@@ -9,15 +9,17 @@ export interface SectionCardProps extends JId {
   short: string
   img: string
   keywords: string[]
+  disabled?: boolean
 }
 
-export const SectionCard: FC<SectionCardProps> = ({ color, keywords, img, title, short, className, ...props }) => {
+export const SectionCard: FC<SectionCardProps> = ({ color, keywords, img, title, short, className, disabled, ...props }) => {
   const { replace: nav } = useRouter()
 
   return (
     <div
       className={cn(
         'h-32 bg-light dark:bg-dark border-2 border-light-200 dark:border-dark-300 rounded p-4 flex gap-4 cursor-pointer shadow',
+        disabled && 'pointer-events-none !cursor-not-allowed filter grayscale opacity-50',
         className,
       )}
       style={{
