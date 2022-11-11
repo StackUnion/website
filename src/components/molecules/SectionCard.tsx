@@ -12,7 +12,16 @@ export interface SectionCardProps extends JId {
   disabled?: boolean
 }
 
-export const SectionCard: FC<SectionCardProps> = ({ color, keywords, img, title, short, className, disabled, ...props }) => {
+export const SectionCard: FC<SectionCardProps> = ({
+  color,
+  keywords,
+  img,
+  title,
+  short,
+  className,
+  disabled,
+  ...props
+}) => {
   const { replace: nav } = useRouter()
 
   return (
