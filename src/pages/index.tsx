@@ -29,7 +29,6 @@ const Page: NextPage = () => {
             short={i18n.most_tagged.javascript}
             img={js}
             keywords={['js', 'javascript', 'ecma']}
-            disabled
           />
           <SectionCard
             color={'rgb(6, 136, 209)'}
@@ -37,7 +36,6 @@ const Page: NextPage = () => {
             short={i18n.most_tagged.typescript}
             img={typescript}
             keywords={['ts', 'typescript']}
-            disabled
           />
           <SectionCard
             color={'rgb(66, 165, 245)'}
