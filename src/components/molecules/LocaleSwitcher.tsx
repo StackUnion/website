@@ -48,7 +48,7 @@ export const LocaleSwitcher: FC = () => {
   const [lang, setLang] = usePersistentState('locale', fallback, () => locale)
 
   useEffect(() => {
-    document.cookie = `NEXT_LOCALE=${lang}; max-age=31536000; path=/`
+    document.cookie = `NEXT_LOCALE=${lang}; max-age=31536000; path=/;SameSite=Lax`
   }, [lang])
 
   return (
